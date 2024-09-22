@@ -11,3 +11,8 @@ const inventory = [
 { name: 'Mocha', price: 5, quantity: 4 }
     
 ];
+
+//Task 2
+//Initialization of empty array
+const orders = [];
+
