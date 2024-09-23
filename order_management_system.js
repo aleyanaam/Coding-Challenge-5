@@ -36,7 +36,7 @@ function placeOrder (items, customerName){
         status : "Pending"
     });
 
-    console.log (`Order placed for ${quantity} ${name} by ${customerName}.`); // Outputs the order for checking purposes
+    console.log (`Order placed for ${quantity} ${name} by ${customerName}.`); // Provides output of the place order function to test functionality
 
 }
 
@@ -50,3 +50,17 @@ function calculateOrderTotal(orders){
     }, 0);
 }
 console.log(`Order total: $${calculateOrderTotal(orders)}`);
+
+//Task 5
+function completeOrder(customerName){
+    const orderStatus = orders.find(orderStatus => orderStatus.customerName === customerName);
+
+    if (orderStatus){
+        orderStatus.status = 'Completed';
+        console.log(`Order for ${customerName} has been completed`)
+    } else {
+        console.log(`Order not found!`);
+    }
+}
+
+completeOrder('Aleyana McLeod'); // Provides output of the complete order function to test functionality
