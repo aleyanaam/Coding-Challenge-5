@@ -35,6 +35,18 @@ function placeOrder (items, customerName){
         quantity : quantity,
         status : "Pending"
     });
+
+    console.log (`Order placed for ${quantity} ${name} by ${customerName}.`); // Outputs the order for checking purposes
+
 }
 
-placeOrder("Aleyana McLeod", { name: 'Latte', quantity: 1 });
+placeOrder({ name: 'Latte', quantity: 3 },"Aleyana McLeod"); 
+
+//Task 4
+function calculateOrderTotal(orders){
+    return orders.reduce((total,order) => {
+        const inventoryItem = inventory.find(product => product.name === order.name);
+        return inventoryItem ? total + (inventoryItem.price *order.quantity) : total;
+    }, 0);
+}
+console.log(`Order total: $${calculateOrderTotal(orders)}`);
