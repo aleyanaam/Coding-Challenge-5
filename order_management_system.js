@@ -16,3 +16,25 @@ const inventory = [
 //Initialization of empty array
 const orders = [];
 
+// Task 3
+function placeOrder (items, customerName){
+    const {name, quantity} = items;
+    const orderItems = inventory.find(item => item.name === name);
+
+    if (!orderItems){
+        return (" Item is not in inventory")
+    } else if (quantity > orderItems.quantity){
+        return ("Insufficient Stock!")
+    }
+
+    orderItems.quantity -= quantity;
+
+    orders.push ({
+        customerName : customerName,
+        name : name,
+        quantity : quantity,
+        status : "Pending"
+    });
+}
+
+placeOrder("Aleyana McLeod", { name: 'Latte', quantity: 1 });
