@@ -64,3 +64,18 @@ function completeOrder(customerName){
 }
 
 completeOrder('Aleyana McLeod'); // Provides output of the complete order function to test functionality
+
+//Task 6
+function checkPendingOrders(customerName){
+    const orderStatus = orders.find(orderStatus => orderStatus.customerName === customerName);
+
+
+    if (orderStatus){
+        orderStatus.status = 'Pending';
+        console.log (`Order for ${customerName} is pending`)
+    } else if (orderStatus) {
+        console.log(`Order is not pending`);
+    } else{
+        console.log(`Order not found`)
+    }
+}
